@@ -25,19 +25,21 @@ with open(csvpath) as csvfile:
         candidatename = row[2]
         if candidatename not in candidates:
             candidates.append(candidatename)
+    
             candidates_dict[candidatename] = 0 
 
         candidates_dict[candidatename] += 1
-        
+
 
 for candidate in candidates:
     votes = candidates_dict[candidate]
 
-
+#candidate winner
     if votes > winnervotes:
         winnername = candidate
         winnervotes = votes
 
+#print results
 output = f"""
 Election Results
 -------------------------
